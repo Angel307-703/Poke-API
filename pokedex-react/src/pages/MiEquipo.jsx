@@ -14,16 +14,13 @@ function MiEquipo({ actualizarEquipo }) {
                 setError(error.message);
             }
         };
-
         cargarEquipo();
     }, [actualizarEquipo]);
 
     return (
         <section>
             <h2>Mi Equipo Pokémon</h2>
-
             {error && <p>{error}</p>}
-
             {equipo.length === 0 ? (
                 <p>
                     Todavía no tienes Pokémon en tu equipo.
