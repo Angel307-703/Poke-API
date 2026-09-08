@@ -10,7 +10,6 @@ function App() {
     return (
         <main>
             <h1>Pokédex React</h1>
-
             <Pokedex
                 onPokemonAgregado={() =>
                     setActualizarEquipo(
@@ -18,9 +17,7 @@ function App() {
                     )
                 }
             />
-
             <hr />
-
             <MiEquipo
                 actualizarEquipo={actualizarEquipo}
             />
