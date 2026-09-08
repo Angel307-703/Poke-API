@@ -1,0 +1,105 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('/public/pokepaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #2c3e50;
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    max-width: 650px;
+    margin: 0 auto;
+    background: #ff1c1c;
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    border: 4px solid #b30000;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #900;
+    margin-top: 0;
+}
+
+h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #ffcccc;
+    padding-bottom: 5px;
+}
+
+section {
+    background-color: #cc0000;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #990000;
+}
+
+input[type="text"] {
+    width: calc(100% - 110px);
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+}
+
+button {
+    padding: 12px 18px;
+    background-color: #ffcb05;
+    color: #1a1a1a;
+    border: 2px solid #b38f00;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #ffdf48;
+}
+
+article {
+    background: #ffffff;
+    border: 3px solid #333333;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+article h2, article h3 {
+    color: #3b4cca;
+    margin: 5px 0;
+}
+
+article img {
+    width: 130px;
+    height: 130px;
+    background: #f2f2f2;
+    border-radius: 50%;
+    border: 2px dashed #ccc;
+}
+
+p {
+    font-weight: 500;
+}
+
+hr {
+    border: 0;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    margin: 25px 0;
+}

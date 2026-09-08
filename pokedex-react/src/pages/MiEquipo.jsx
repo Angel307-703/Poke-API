@@ -1,21 +1,37 @@
 import { useEffect, useState } from "react";
-import { obtenerEquipo } from "../services/equipoApi";
+import { obtenerEquipo, actualizarPokemon, eliminarPokemon } from "../services/equipoApi";
 
 function MiEquipo({ actualizarEquipo }) {
     const [equipo, setEquipo] = useState([]);
     const [error, setError] = useState("");
 
+    const cargarEquipo = async () => {
+        try {
+            const datos = await obtenerEquipo();
+            setEquipo(datos);
+        } catch (error) {
+            setError(error.message);
+        }
+    };
+
     useEffect(() => {
-        const cargarEquipo = async () => {
-            try {
-                const datos = await obtenerEquipo();
-                setEquipo(datos);
-            } catch (error) {
-                setError(error.message);
-            }
-        };
         cargarEquipo();
     }, [actualizarEquipo]);
+
+    const subirNivel = async (pokemon) => {
+        await actualizarPokemon(pokemon.id, { nivel: pokemon.nivel + 1 });
+        cargarEquipo();
+    };
+
+    const cambiarFavorito = async (pokemon) => {
+        await actualizarPokemon(pokemon.id, { favorito: !pokemon.favorito });
+        cargarEquipo();
+    };
+
+    const liberarPokemon = async (id) => {
+        await eliminarPokemon(id);
+        cargarEquipo();
+    };
 
     return (
         <section>
@@ -27,13 +43,28 @@ function MiEquipo({ actualizarEquipo }) {
                 </p>
             ) : (
                 equipo.map((pokemon) => (
-                    <article key={pokemon.id}>
-                        <h3>{pokemon.nombre}</h3>
+                    <article key={pokemon.id} style={{ border: pokemon.favorito ? "3px solid #ffcb05" : "3px solid #333333" }}>
+                        <h3>{pokemon.nombre} {pokemon.favorito && "⭐"}</h3>
                         <img
                             src={pokemon.imagen}
                             alt={pokemon.nombre}
                         />
                         <p>Nivel: {pokemon.nivel}</p>
+                        <button onClick={() => subirNivel(pokemon)}>
+                            Subir nivel
+                        </button>
+                        <button onClick={() => cambiarFavorito(pokemon)}>
+                            {pokemon.favorito
+                                ? "Quitar favorito"
+                                : "Marcar favorito"}
+                        </button>
+                        <button
+                            onClick={() =>
+                                liberarPokemon(pokemon.id)
+                            }
+                        >
+                            Liberar Pokémon
+                        </button>
                     </article>
                 ))
             )}

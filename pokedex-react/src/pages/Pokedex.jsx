@@ -31,7 +31,9 @@ function Pokedex({ onPokemonAgregado }) {
         try {
             await agregarAlEquipo(nuevoPokemon);
             onPokemonAgregado();
-            alert(`${pokemon.name} fue agregado al equipo`);
+            alert(
+                `${pokemon.name} fue agregado al equipo`
+            );
         } catch (error) {
             setError(error.message);
         }
@@ -44,7 +46,9 @@ function Pokedex({ onPokemonAgregado }) {
                 type="text"
                 value={busqueda}
                 placeholder="Ejemplo: pikachu"
-                onChange={(evento) => setBusqueda(evento.target.value)}
+                onChange={(evento) =>
+                    setBusqueda(evento.target.value)
+                }
             />
             <button onClick={buscar}>
                 Buscar
