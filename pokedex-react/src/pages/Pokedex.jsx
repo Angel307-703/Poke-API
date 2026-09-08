@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { buscarPokemon } from "../services/pokeApi";
-import { agregarAlEquipo } from "../services/equipoApi";
+import { agregarAlEquipo, obtenerEquipo } from "../services/equipoApi";
 
 function Pokedex({ onPokemonAgregado }) {
     const [busqueda, setBusqueda] = useState("");
@@ -22,18 +22,24 @@ function Pokedex({ onPokemonAgregado }) {
         if (!pokemon) {
             return;
         }
-        const nuevoPokemon = {
-            nombre: pokemon.name,
-            imagen: pokemon.sprites.front_default,
-            nivel: 1,
-            favorito: false
-        };
+
         try {
+            const equipoActual = await obtenerEquipo();
+            if (equipoActual.length >= 6) {
+                alert("¡Tu equipo está lleno! Solo puedes tener un máximo de 6 Pokémon.");
+                return;
+            }
+
+            const nuevoPokemon = {
+                nombre: pokemon.name,
+                imagen: pokemon.sprites.front_default,
+                nivel: 1,
+                favorito: false
+            };
+
             await agregarAlEquipo(nuevoPokemon);
             onPokemonAgregado();
-            alert(
-                `${pokemon.name} fue agregado al equipo`
-            );
+            alert(`${pokemon.name} fue agregado al equipo`);
         } catch (error) {
             setError(error.message);
         }

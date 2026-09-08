@@ -19,6 +19,11 @@ function MiEquipo({ actualizarEquipo }) {
     }, [actualizarEquipo]);
 
     const subirNivel = async (pokemon) => {
+        if (pokemon.nivel >= 100) {
+            alert("¡Este Pokémon ya ha alcanzado el nivel máximo (100)!");
+            return;
+        }
+
         await actualizarPokemon(pokemon.id, { nivel: pokemon.nivel + 1 });
         cargarEquipo();
     };

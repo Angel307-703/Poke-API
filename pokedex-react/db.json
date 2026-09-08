@@ -1,4 +1,47 @@
 {
-  "equipo": [],
+  "equipo": [
+    {
+      "nombre": "pidgey",
+      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png",
+      "nivel": 1,
+      "favorito": false,
+      "id": "wMBPH_XqnRA"
+    },
+    {
+      "nombre": "snivy",
+      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/495.png",
+      "nivel": 1,
+      "favorito": false,
+      "id": "Y62SZIKZk2M"
+    },
+    {
+      "nombre": "mew",
+      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
+      "nivel": 1,
+      "favorito": false,
+      "id": "aPJXk59YsH0"
+    },
+    {
+      "nombre": "celebi",
+      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/251.png",
+      "nivel": 1,
+      "favorito": false,
+      "id": "2HjRCz-qolc"
+    },
+    {
+      "nombre": "magearna",
+      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/801.png",
+      "nivel": 1,
+      "favorito": false,
+      "id": "b1zKvnRw7Ow"
+    },
+    {
+      "nombre": "victini",
+      "imagen": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/494.png",
+      "nivel": 1,
+      "favorito": false,
+      "id": "WSTArM8Vr3I"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
